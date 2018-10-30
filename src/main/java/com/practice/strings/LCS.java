@@ -56,10 +56,22 @@ public class LCS {
         return lcs[str1.length()][str2.length()];
     }
 
+    public static int getSubsequenceUsingRecursion(char[] str1, char[] str2, int m, int n){
+
+        if(m == 0 || n ==0){
+            return 0;
+        }
+        if (str1[m-1] == str2[n-1])
+            return 1 + getSubsequenceUsingRecursion(str1, str2, m-1, n-1);
+        else
+            return Math.max(getSubsequenceUsingRecursion(str1, str2, m, n-1),
+                    getSubsequenceUsingRecursion(str1, str2, m-1, n) );
+    }
+
     public static void main(String[] args) {
         String A = "ACBDEA";
         String B = "ABCDA";
-
         System.out.println("Longest Common Subsequence is: " + getSubsequence(A, B));
+        System.out.println("Longest Common Subsequence using Recursion is: " + getSubsequenceUsingRecursion(A.toCharArray(), B.toCharArray(), A.length(), B.length()));
     }
 }

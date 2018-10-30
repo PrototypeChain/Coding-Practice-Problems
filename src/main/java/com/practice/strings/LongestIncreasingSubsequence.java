@@ -1,6 +1,8 @@
 package com.practice.strings;
 
-public class LIS {
+import java.util.Arrays;
+
+public class LongestIncreasingSubsequence {
 
 
     public static int getLis(int[] arr){
@@ -35,7 +37,6 @@ public class LIS {
             }
         }
         System.out.println("Actual Elements: " + path);
-
         return max;
     }
 
